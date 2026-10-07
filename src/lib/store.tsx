@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useMemo, useState, type ReactNode } from "react";
+import React, { createContext, useContext, useEffect, useMemo, useState, type ReactNode } from "react";
 import { PINS, CREATORS, type Pin } from "./data";
 
 export type Accent = "coral" | "purple" | "blue" | "emerald";
@@ -134,7 +134,9 @@ function useStoreValue() {
 }
 
 type Store = ReturnType<typeof useStoreValue>;
-const Ctx = createContext<Store | null>(null);
+// Keep one context instance across hot reloads so the provider and consumers always match.
+const g = globalThis as unknown as { __pixelnestCtx?: React.Context<Store | null> };
+const Ctx = (g.__pixelnestCtx ??= createContext<Store | null>(null));
 
 export function StoreProvider({ children }: { children: ReactNode }) {
   const v = useStoreValue();
