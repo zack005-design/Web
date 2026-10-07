@@ -10,33 +10,141 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as CreateRouteImport } from './routes/create'
+import { Route as ExploreRouteImport } from './routes/explore'
+import { Route as MessagesRouteImport } from './routes/messages'
+import { Route as NotificationsRouteImport } from './routes/notifications'
+import { Route as ProfileRouteImport } from './routes/profile'
+import { Route as SearchRouteImport } from './routes/search'
+import { Route as CreatorIdRouteImport } from './routes/creator.$id'
+import { Route as PinIdRouteImport } from './routes/pin.$id'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CreateRoute = CreateRouteImport.update({
+  id: '/create',
+  path: '/create',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ExploreRoute = ExploreRouteImport.update({
+  id: '/explore',
+  path: '/explore',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MessagesRoute = MessagesRouteImport.update({
+  id: '/messages',
+  path: '/messages',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NotificationsRoute = NotificationsRouteImport.update({
+  id: '/notifications',
+  path: '/notifications',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProfileRoute = ProfileRouteImport.update({
+  id: '/profile',
+  path: '/profile',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SearchRoute = SearchRouteImport.update({
+  id: '/search',
+  path: '/search',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CreatorIdRoute = CreatorIdRouteImport.update({
+  id: '/creator/$id',
+  path: '/creator/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PinIdRoute = PinIdRouteImport.update({
+  id: '/pin/$id',
+  path: '/pin/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/create': typeof CreateRoute
+  '/explore': typeof ExploreRoute
+  '/messages': typeof MessagesRoute
+  '/notifications': typeof NotificationsRoute
+  '/profile': typeof ProfileRoute
+  '/search': typeof SearchRoute
+  '/creator/$id': typeof CreatorIdRoute
+  '/pin/$id': typeof PinIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/create': typeof CreateRoute
+  '/explore': typeof ExploreRoute
+  '/messages': typeof MessagesRoute
+  '/notifications': typeof NotificationsRoute
+  '/profile': typeof ProfileRoute
+  '/search': typeof SearchRoute
+  '/creator/$id': typeof CreatorIdRoute
+  '/pin/$id': typeof PinIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/create': typeof CreateRoute
+  '/explore': typeof ExploreRoute
+  '/messages': typeof MessagesRoute
+  '/notifications': typeof NotificationsRoute
+  '/profile': typeof ProfileRoute
+  '/search': typeof SearchRoute
+  '/creator/$id': typeof CreatorIdRoute
+  '/pin/$id': typeof PinIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/create'
+    | '/explore'
+    | '/messages'
+    | '/notifications'
+    | '/profile'
+    | '/search'
+    | '/creator/$id'
+    | '/pin/$id'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/create'
+    | '/explore'
+    | '/messages'
+    | '/notifications'
+    | '/profile'
+    | '/search'
+    | '/creator/$id'
+    | '/pin/$id'
+  id:
+    | '__root__'
+    | '/'
+    | '/create'
+    | '/explore'
+    | '/messages'
+    | '/notifications'
+    | '/profile'
+    | '/search'
+    | '/creator/$id'
+    | '/pin/$id'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  CreateRoute: typeof CreateRoute
+  ExploreRoute: typeof ExploreRoute
+  MessagesRoute: typeof MessagesRoute
+  NotificationsRoute: typeof NotificationsRoute
+  ProfileRoute: typeof ProfileRoute
+  SearchRoute: typeof SearchRoute
+  CreatorIdRoute: typeof CreatorIdRoute
+  PinIdRoute: typeof PinIdRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +156,75 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/create': {
+      id: '/create'
+      path: '/create'
+      fullPath: '/create'
+      preLoaderRoute: typeof CreateRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/explore': {
+      id: '/explore'
+      path: '/explore'
+      fullPath: '/explore'
+      preLoaderRoute: typeof ExploreRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/messages': {
+      id: '/messages'
+      path: '/messages'
+      fullPath: '/messages'
+      preLoaderRoute: typeof MessagesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/notifications': {
+      id: '/notifications'
+      path: '/notifications'
+      fullPath: '/notifications'
+      preLoaderRoute: typeof NotificationsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/profile': {
+      id: '/profile'
+      path: '/profile'
+      fullPath: '/profile'
+      preLoaderRoute: typeof ProfileRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/search': {
+      id: '/search'
+      path: '/search'
+      fullPath: '/search'
+      preLoaderRoute: typeof SearchRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/creator/$id': {
+      id: '/creator/$id'
+      path: '/creator/$id'
+      fullPath: '/creator/$id'
+      preLoaderRoute: typeof CreatorIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pin/$id': {
+      id: '/pin/$id'
+      path: '/pin/$id'
+      fullPath: '/pin/$id'
+      preLoaderRoute: typeof PinIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  CreateRoute: CreateRoute,
+  ExploreRoute: ExploreRoute,
+  MessagesRoute: MessagesRoute,
+  NotificationsRoute: NotificationsRoute,
+  ProfileRoute: ProfileRoute,
+  SearchRoute: SearchRoute,
+  CreatorIdRoute: CreatorIdRoute,
+  PinIdRoute: PinIdRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
