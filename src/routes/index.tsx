@@ -50,7 +50,7 @@ function Home() {
         {FLOAT.map((f, k) => (
           <motion.img
             key={f.i}
-            src={PINS[f.i].image}
+            src={PINS[f.i]!.image}
             alt=""
             style={{ y: k % 2 ? y1 : y2 }}
             initial={{ opacity: 0, scale: 0.9 }}

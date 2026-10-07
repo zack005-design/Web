@@ -8,9 +8,9 @@ type S = { category?: string | undefined; color?: string | undefined; mood?: str
 
 export const Route = createFileRoute("/explore")({
   validateSearch: (s: Record<string, unknown>): S => ({
-    category: typeof s.category === "string" ? s.category : undefined,
-    color: typeof s.color === "string" ? s.color : undefined,
-    mood: typeof s.mood === "string" ? s.mood : undefined,
+    category: typeof s["category"] === "string" ? s["category"] : undefined,
+    color: typeof s["color"] === "string" ? s["color"] : undefined,
+    mood: typeof s["mood"] === "string" ? s["mood"] : undefined,
   }),
   head: () => ({
     meta: [
@@ -38,7 +38,7 @@ function Explore() {
         <div className="mt-7 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
           {CATEGORIES.map((c, i) => (
             <Link key={c} to="/explore" search={{ category: c }} data-cursor="image" className="group relative aspect-[4/5] overflow-hidden rounded-2xl">
-              <img src={PINS[i + 24].image} alt="" loading="lazy" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
+              <img src={PINS[i + 24]!.image} alt="" loading="lazy" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
               <div className="absolute inset-0 bg-overlay" />
               <span className="absolute bottom-3 left-3 font-display text-lg font-semibold text-on-image">{c}</span>
             </Link>

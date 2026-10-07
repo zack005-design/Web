@@ -6,7 +6,7 @@ import { CATEGORIES, CREATORS } from "@/lib/data";
 import { useStore } from "@/lib/store";
 
 export const Route = createFileRoute("/search")({
-  validateSearch: (s: Record<string, unknown>): { q?: string | undefined } => ({ q: typeof s.q === "string" ? s.q : undefined }),
+  validateSearch: (s: Record<string, unknown>): { q?: string | undefined } => ({ q: typeof s["q"] === "string" ? s["q"] : undefined }),
   head: () => ({
     meta: [
       { title: "Search — PixelNest" },
